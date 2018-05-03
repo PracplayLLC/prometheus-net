@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5261BDE9-E756-4E46-90C3-4C4DA65F4578}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Prometheus.NetStandard4</RootNamespace>
+    <AssemblyName>Prometheus.NetStandard4</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="protobuf-net">
+      <HintPath>..\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Counter.cs" />
+    <Compile Include="CounterConfiguration.cs" />
+    <Compile Include="ExtensionsForMetrics.cs" />
+    <Compile Include="Gauge.cs" />
+    <Compile Include="GaugeConfiguration.cs" />
+    <Compile Include="Histogram.cs" />
+    <Compile Include="HistogramConfiguration.cs" />
+    <Compile Include="IMetricServer.cs" />
+    <Compile Include="MetricConfiguration.cs" />
+    <Compile Include="MetricHandler.cs" />
+    <Compile Include="MetricPusher.cs" />
+    <Compile Include="Metrics.cs" />
+    <Compile Include="MetricServer.cs" />
+    <Compile Include="ScrapeHandler.cs" />
+    <Compile Include="Summary.cs" />
+    <Compile Include="SummaryConfiguration.cs" />
+    <Compile Include="Advanced\Child.cs" />
+    <Compile Include="Advanced\Collector.cs" />
+    <Compile Include="Advanced\DataContracts.cs" />
+    <Compile Include="Advanced\DefaultCollectorRegistry.cs" />
+    <Compile Include="Advanced\DotNetStatsCollector.cs" />
+    <Compile Include="Advanced\ICollector.cs" />
+    <Compile Include="Advanced\ICollectorRegistry.cs" />
+    <Compile Include="Advanced\IOnDemandCollector.cs" />
+    <Compile Include="Advanced\MetricFactory.cs" />
+    <Compile Include="Advanced\ScrapeFailedException.cs" />
+    <Compile Include="Advanced\ThreadSafeDouble.cs" />
+    <Compile Include="Advanced\ThreadSafeLong.cs" />
+    <Compile Include="Internal\AsciiFormatter.cs" />
+    <Compile Include="Internal\LabelValues.cs" />
+    <Compile Include="Internal\ProtoFormatter.cs" />
+    <Compile Include="SummaryImpl\QuantileComparer.cs" />
+    <Compile Include="SummaryImpl\QuantileEpsilonPair.cs" />
+    <Compile Include="SummaryImpl\QuantileStream.cs" />
+    <Compile Include="SummaryImpl\Sample.cs" />
+    <Compile Include="SummaryImpl\SampleBuffer.cs" />
+    <Compile Include="SummaryImpl\SampleStream.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="Prometheus.NetStandard.csproj" />
+    <None Include="Prometheus.NetStandard4.csproj" />
+  </ItemGroup>
+</Project>
