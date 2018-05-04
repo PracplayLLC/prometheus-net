@@ -75,9 +75,9 @@ namespace Prometheus.Advanced
         public void Clear()
         {
             _collectors.Clear();
-
+			IOnDemandCollector odc;
             while (_onDemandCollectors.Count > 0)
-                _onDemandCollectors.TryTake(out _);
+                _onDemandCollectors.TryTake(out odc);
         }
 
         public ICollector GetOrAdd(ICollector collector)
@@ -92,7 +92,8 @@ namespace Prometheus.Advanced
 
         public bool Remove(ICollector collector)
         {
-            return _collectors.TryRemove(collector.Name, out _);
+			ICollector ic;
+            return _collectors.TryRemove(collector.Name, out ic);
         }
     }
 }
